@@ -27,7 +27,7 @@ if (isset($_GET["length"])) {
 
         //prendo un carattere random da questa stringa
 
-        $randomPosition = rand(min: 0, max: strlen(string: $allChars) - 1);
+        $randomPosition = rand(0, strlen($allChars) - 1);
         $randomCharacter = substr($allChars, $randomPosition, 1);
 
 

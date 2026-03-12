@@ -1,5 +1,17 @@
 <?php
 require_once 'functions.php';
+
+if($password !== ""){
+    //dirottiamo l'utente alla pagina password.php
+
+    session_start();
+    //salviamo la password in una variabile di sessione
+
+    $_SESSION['password'] = $password;
+
+
+    header("location: ./password.php");
+}
 ?>
 
 
@@ -10,7 +22,7 @@ require_once 'functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=h1, initial-scale=1.0">
-    <title>Document</title>
+    <title>generatore di password</title>
 </head>
 
 <body>

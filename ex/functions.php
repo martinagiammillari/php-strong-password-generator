@@ -1,4 +1,3 @@
-
 <?php
 $password = "";
 if (isset($_GET["length"])) {
@@ -9,14 +8,38 @@ if (isset($_GET["length"])) {
 
 
     //abbiamo i possibili contenuti della password
-    $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $lowercase = "abcdefghijklmnopqrstuvwxyz";
+    $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
     $numbers = "0123456789";
     $symbols = "!@#$%^&*()-_=+[]{}|;:,.<>?/";
+    $allChars = "";
+
+
+
+
+
+    //controllo se inserire le lettere 
+    if (isset($_GET["letters"]) && $_GET["letters"] === "on") {
+        $allChars .= $letters;
+    }
+
+    //controllo se inserire i numeri
+    if (isset($_GET["numbers"]) && $_GET["numbers"] === "on") {
+        $allChars .= $numbers;
+    }
+
+    //controllo se inserire i simboli
+    if (isset($_GET["symbols"]) && $_GET["symbols"] === "on") {
+        $allChars .= $symbols;
+    }
+
+
+  
+
 
 
     //variabile che contiene tutti questi caratteri insieme
-    $allChars = $uppercase . $lowercase . $numbers . $symbols;
+    // $allChars = $letters . $numbers . $symbols;
 
 
 
@@ -34,6 +57,8 @@ if (isset($_GET["length"])) {
         //aggiungi il carattere alla stringa della password per tot volte
         $password .= $randomCharacter;
     }
+
+
 
 
 }
